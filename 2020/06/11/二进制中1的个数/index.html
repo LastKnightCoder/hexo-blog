@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>二进制中1的个数 | Coder</title><meta name="keywords" content="剑指offer"><meta name="author" content="LastKnightCoder"><meta name="copyright" content="LastKnightCoder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="题目：请实现一个函数，输入一个整数，输出该数二进制表示中 $1$ 的个数。例如，把 $9$ 表示成二进制是 $1001$，有 $2$ 位是 $1$。因此，如果输入 $9$，则该函数输出 $2$。  我们通过将数字与 $1$ 相与，即可知道数字的二进制的最后一位是否为 $1$，我们只要逐渐的将数字进行右移，即可统计出数字中 $1$ 的数目，所以会写下这样的代码 12345678910public">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二进制中1的个数">
+<meta property="og:url" content="http://lastknightcoder.github.io/hexo-blog/2020/06/11/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/index.html">
+<meta property="og:site_name" content="Coder">
+<meta property="og:description" content="题目：请实现一个函数，输入一个整数，输出该数二进制表示中 $1$ 的个数。例如，把 $9$ 表示成二进制是 $1001$，有 $2$ 位是 $1$。因此，如果输入 $9$，则该函数输出 $2$。  我们通过将数字与 $1$ 相与，即可知道数字的二进制的最后一位是否为 $1$，我们只要逐渐的将数字进行右移，即可统计出数字中 $1$ 的数目，所以会写下这样的代码 12345678910public">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611091947.png">
+<meta property="article:published_time" content="2020-06-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-16T12:26:51.427Z">
+<meta property="article:author" content="LastKnightCoder">
+<meta property="article:tag" content="剑指offer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611091947.png"><link rel="shortcut icon" href="/hexo-blog/img/favicon.png"><link rel="canonical" href="http://lastknightcoder.github.io/hexo-blog/2020/06/11/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo-blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '二进制中1的个数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: false,
+  postUpdate: '2021-09-16 12:26:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/hexo-blog/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">127</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">109</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611091947.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo-blog/">Coder</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">二进制中1的个数<a class="post-edit-link" href="https://github.com/LastKnightCoder/hexo-blog/edit/master/source/_posts/二进制中1的个数.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-11T00:00:00.000Z" title="发表于 2020-06-11 00:00:00">2020-06-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-16T12:26:51.427Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/%E5%89%91%E6%8C%87offer/">剑指offer</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="二进制中1的个数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>题目：请实现一个函数，输入一个整数，输出该数二进制表示中 $1$ 的个数。例如，把 $9$ 表示成二进制是 $1001$，有 $2$ 位是 $1$。因此，如果输入 $9$，则该函数输出 $2$。</p>
+</blockquote>
+<p>我们通过将数字与 $1$ 相与，即可知道数字的二进制的最后一位是否为 $1$，我们只要逐渐的将数字进行右移，即可统计出数字中 $1$ 的数目，所以会写下这样的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">numbersOfOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((n &amp; <span class="number">1</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是上面的代码有一个问题，那就是如果输入的整数为负数呢? 根据负数的表示原则，它的首位是 $1$ 来表示数字的正负性，在右移的过程中，首位会进行补 $1$ 以表示它的符号还是负的，这个时候统计出的数字就是错误的了，并且会造成上面代码的死循环，如下以 $8$ 位表示的 $-7$ 为例</p>
+<img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200610234544.png" width="70%"/>
+
+<p>为了解决负数引起的问题，我们可以反其道而行之，让 $1$ 进行左移，然后与数字相与，同样也可以统计出数字 $1$ 的个数，所以修改代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">numbersOfOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (flag != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((n &amp; flag) != <span class="number">0</span>) &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们发现统计负数中 $1$ 的个数的结果与我们想象的不符，比如我们统计 $-7$ 的个数，结果为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(numbersOfOne(-<span class="number">7</span>)); <span class="comment">// 30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果是 $30$ 而不是 $4$，难道是我们的算法错了，其实不是，而是计算机存储数字是以其补码进行存储的，对于正数来说，它的补码是它本身，而对于负数，则是将除符号位进行取反，然后加 $1$，所以 $-7$ 的补码为</p>
+<img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611000157.png" width="80%"/>
+
+<p>上面计算出一个数字二进制表示的 $1$ 的个数需要进行 $32$ 次循环(对于 <code>int</code> 类型的数据)，我们可以进一步对算法进行改进，使得二进制中有几个 $1$ 则进行几次循环。为了理解下面讲的算法，我们来看一下将一个数字减去 $1$ 它的二进制会发生什么变化? </p>
+<p>先说结论，假设数字二进制最右边的 $1$ 在第 $m$ 位，即第 $m$ 位后面的位全是 $0$，在减去 $1$ 之后，第 $m$ 位的 $1$ 变成 $0$，后面的 $0$ 全部变为 $1$，而第 $m$ 位前面的数字保持不变，以 $8$ 位表示的 $10$ 为例</p>
+<img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611001514.png" width="60%"/>
+
+<p>那么我们将数字 $n$ 与 $n - 1$ 进行相与会得到什么，因为 $n - 1$ 第 $m$ 位前面的数字不变，所以 $n - 1$ 的第 $m$ 位以前的数字与 $n$ 相同，所以 $n$ <code>&amp;</code> $n - 1$ 得到的第 $m$ 位以前的二进制是不变的，而 $n - 1$ 第 $m$ 位变成 $0$，以及第 $m$ 位以后的 $0$ 变为 $1$，所以  $n$ <code>&amp;</code> $n - 1$ 得到的第 $m$ 位及第 $m$ 位以后的二进制是 $0$，所以  $n$ <code>&amp;</code> $n - 1$ 的效果就是将数字 $n$ 中最右边的 $1$ 给去除了</p>
+<img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611002519.png" width="50%"/>
+
+<p>所以我们就可以写出这样的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">numbersOfOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n != <span class="number">0</span>) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        n = (n - <span class="number">1</span>) &amp; n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每次循环会去除一个 $1$，所以二进制中有几个 $1$，便会进行几次循环。</p>
+<blockquote>
+<p><strong>扩展：</strong></p>
+<ul>
+<li>用一条语句判断一个整数是不是 $2$ 的整数次方。一个整数如果是 $2$ 的整数次方，那么它的二进制表示中有且只有一位是 $1$，而其他所有位都是 $0$。所以我们统计该数二进制中 $1$ 的个数，如果是一个，那么就是 $2$ 的整数次方。</li>
+<li>输入两个整数 $m$ 和 $n$，计算需要改变 $m$ 的二进制表示中的多少位才能得到 $n$。比如 $10$ 的二进制表示为 $1010$，$13$ 的二进制表示为 $1101$，需要改变 $1010$ 中的 $3$ 位才能得到 $1101$。我们可以分两步解决这个问题，首先将这两个数进行异或，这样 $m$ 和 $n$ 二进制不同的位会得到 $1$，相同的位是 $0$，我们只要统计异或后二进制中 $1$ 的个数，即可得到需要改变的位数。</li>
+</ul>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">LastKnightCoder</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lastknightcoder.github.io/hexo-blog/2020/06/11/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/">http://lastknightcoder.github.io/hexo-blog/2020/06/11/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lastknightcoder.github.io/hexo-blog" target="_blank">Coder</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/hexo-blog/tags/%E5%89%91%E6%8C%87offer/">剑指offer</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200611091947.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/hexo-blog/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/hexo-blog/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/hexo-blog/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/hexo-blog/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2020/06/03/offsetX,pageX,clientX,screenX/"><img class="prev-cover" src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200603111110.png" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">offsetX,pageX,clientX和screenX</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2020/06/13/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154521.jpg" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">表示数值的字符串</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2020/07/01/n个骰子的点数/" title="n个骰子的点数"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153807.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-01</div><div class="title">n个骰子的点数</div></div></a></div><div><a href="/hexo-blog/2020/07/01/两个链表的第一个公共节点/" title="两个链表的第一个公共节点"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154520.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-01</div><div class="title">两个链表的第一个公共节点</div></div></a></div><div><a href="/hexo-blog/2020/07/01/二叉搜索树的第k大节点/" title="二叉搜索树的第k大节点"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153409.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-01</div><div class="title">二叉搜索树的第k大节点</div></div></a></div><div><a href="/hexo-blog/2020/06/26/从上到下打印二叉树/" title="从上到下打印二叉树"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153806.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-26</div><div class="title">从上到下打印二叉树</div></div></a></div><div><a href="/hexo-blog/2020/07/01/圆圈中最后剩下的数字/" title="圆圈中最后剩下的数字"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153622.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-01</div><div class="title">圆圈中最后剩下的数字</div></div></a></div><div><a href="/hexo-blog/2020/06/28/复杂链表的复制/" title="复杂链表的复制"><img class="cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153806.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-28</div><div class="title">复杂链表的复制</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/hexo-blog/img/avatar.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LastKnightCoder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">127</div></a></div><div class="card-info-data-item is-center"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">109</div></a></div><div class="card-info-data-item is-center"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/LastKnightCoder"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/07/01/%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="圆圈中最后剩下的数字"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153622.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="圆圈中最后剩下的数字"/></a><div class="content"><a class="title" href="/hexo-blog/2020/07/01/%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="圆圈中最后剩下的数字">圆圈中最后剩下的数字</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/06/28/%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" title="复杂链表的复制"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153806.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="复杂链表的复制"/></a><div class="content"><a class="title" href="/hexo-blog/2020/06/28/%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" title="复杂链表的复制">复杂链表的复制</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/06/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/" title="字符串的排列"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153809.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="字符串的排列"/></a><div class="content"><a class="title" href="/hexo-blog/2020/06/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/" title="字符串的排列">字符串的排列</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/11/05/%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/" title="安全与算法"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153807.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="安全与算法"/></a><div class="content"><a class="title" href="/hexo-blog/2020/11/05/%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/" title="安全与算法">安全与算法</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/08/30/%E5%B0%8F%E7%90%83%E4%BC%9A%E5%81%9C%E4%B8%8B%E6%9D%A5%E5%90%97/" title="小球会停下来吗"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154833.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="小球会停下来吗"/></a><div class="content"><a class="title" href="/hexo-blog/2020/08/30/%E5%B0%8F%E7%90%83%E4%BC%9A%E5%81%9C%E4%B8%8B%E6%9D%A5%E5%90%97/" title="小球会停下来吗">小球会停下来吗</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By LastKnightCoder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

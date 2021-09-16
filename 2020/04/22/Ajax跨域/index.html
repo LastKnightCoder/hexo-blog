@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ajax跨域 | Coder</title><meta name="keywords" content="Ajax 跨域 JSONP CORS"><meta name="author" content="LastKnightCoder"><meta name="copyright" content="LastKnightCoder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="讲解Ajax跨域相关知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax跨域">
+<meta property="og:url" content="http://lastknightcoder.github.io/hexo-blog/2020/04/22/Ajax%E8%B7%A8%E5%9F%9F/index.html">
+<meta property="og:site_name" content="Coder">
+<meta property="og:description" content="讲解Ajax跨域相关知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg83.png">
+<meta property="article:published_time" content="2020-04-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-16T12:26:51.419Z">
+<meta property="article:author" content="LastKnightCoder">
+<meta property="article:tag" content="Ajax">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg83.png"><link rel="shortcut icon" href="/hexo-blog/img/favicon.png"><link rel="canonical" href="http://lastknightcoder.github.io/hexo-blog/2020/04/22/Ajax%E8%B7%A8%E5%9F%9F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo-blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ajax跨域',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2021-09-16 12:26:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/hexo-blog/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">127</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">109</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg83.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo-blog/">Coder</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ajax跨域<a class="post-edit-link" href="https://github.com/LastKnightCoder/hexo-blog/edit/master/source/_posts/Ajax跨域.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-22T00:00:00.000Z" title="发表于 2020-04-22 00:00:00">2020-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-16T12:26:51.419Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ajax跨域"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>什么是同源策略：同 <code>domain</code>(或<code>IP</code>)，同端口，同协议视为同一个域，一个域内的脚本仅仅具有本域内的权限，可以理解为本域脚本只能读写本域内的资源，而无法访问其它域的资源，这种安全限制称为同源策略。我们看几个例子判断两个链接是否是同源</p>
+<table>
+<thead>
+<tr>
+<th><code>url1</code></th>
+<th><code>url2</code></th>
+<th>是否同源</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://example.com:8080/">http://example.com:8080</a></td>
+<td><a target="_blank" rel="noopener" href="http://example.com/">http://example.com:80</a></td>
+<td>否</td>
+<td>端口不同</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://example.com:8080/">http://example.com:8080</a></td>
+<td><a target="_blank" rel="noopener" href="https://example.com:8080/">https://example.com:8080</a></td>
+<td>否</td>
+<td>协议不同</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.taobao.com/">http://www.taobao.com</a></td>
+<td>否</td>
+<td>域名不同</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a></td>
+<td><a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a></td>
+<td>否</td>
+<td>域名与域名对应的IP地址不同源</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://example.com:8000/a.js">http://example.com:8000/a.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://example.com:8000/b.js">http://example.com:8000/b.js</a></td>
+<td>是</td>
+<td>协议，域名，端口相同，子域名不同</td>
+</tr>
+</tbody></table>
+<p>我们首先启动一个 <code>Node</code> 程序作为服务端，启动在本地的 <code>4000</code> 端口，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">4000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;服务启动在4000端口...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>现在我们同时在本地的 <code>5501</code> 端口启动一个静态服务器显示网页，在网页中我们发起一个 <code>ajax</code> 请求，向本地的 <code>4000</code> 端口请求数据，即我们刚刚搭的 <code>Node</code> 程序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">    &#125; </span><br><span class="line"> &#125;</span><br><span class="line"> xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.error(<span class="string">&#x27;出错了&#x27;</span>)</span><br><span class="line"> &#125;</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:4000&#x27;</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们打开控制台，发现给出这样的错误信息</p>
+<center>
+    <img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/Snipaste_2020-04-21_21-23-10.png"/>
+</center>
+
+<p>因为网页的地址 <code>http://127.0.0.1:5501</code> 与服务器的地址 <code>http://127.0.0.1:4000</code> 它们的端口是不同的，所以它们是不同源的，所以这个请求是跨域的请求，而浏览器是不允许跨域请求的。那么浏览器为什么会提出同源策略，这是出于安全的考虑。同源策略包括两种：</p>
+<ol>
+<li><code>DOM</code> 同源策略：禁止对不同源页面 <code>DOM</code> 进行操作，这里主要场景是 <code>iframe</code> 跨域的情况，不同域名的 <code>iframe</code> 是限制互相访问的</li>
+<li><code>XMLHttpRequest</code> 同源策略：禁止使用 <code>xhr</code> 对象向不同源的服务器地址发起 <code>HTTP</code> 请求</li>
+</ol>
+<p>在这里我们只关注 <code>Ajax</code> 跨域，我们来看一下如果没有同源策略会有什么危害：</p>
+<ol>
+<li>用户登录了自己的银行页面 <a target="_blank" rel="noopener" href="http://mybank.com,http//mybank.com">http://mybank.com，http://mybank.com</a> 向用户的 <code>cookie</code> 中添加用户标识</li>
+<li>用户浏览了恶意页面 <a target="_blank" rel="noopener" href="http://evil.com,执行了页面中的恶意/">http://evil.com，执行了页面中的恶意</a> <code>Ajax</code> 请求代码</li>
+<li><a target="_blank" rel="noopener" href="http://evil.com/">http://evil.com</a> 向 <a target="_blank" rel="noopener" href="http://mybank.com/">http://mybank.com</a> 发起 <code>Ajax HTTP</code> 请求，请求会默认把 <a target="_blank" rel="noopener" href="http://mybank.com/">http://mybank.com</a> 对应 <code>cookie</code> 也同时发送过去</li>
+<li>银行页面从发送的 <code>cookie</code> 中提取用户标识，验证用户无误，<code>response</code> 中返回请求数据，此时数据就泄露了</li>
+<li>而且由于 <code>Ajax</code> 在后台执行，用户无法感知这一过程</li>
+</ol>
+<p>所以有了同源策略我们才能够安全的上网，但是很多时候我们还是有跨域的需求的，并且现在随着前后端分离的流行，前端与后端不同源是很有可能，所以迫切需要解决这个问题，下面就介绍两种跨域的方法。</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>同源策略提升了 <code>Web</code> 前端的安全性，但牺牲了 <code>Web</code> 拓展上的灵活性。设想若把 <code>html</code>、<code>js</code>、<code>css</code>、<code>flash</code>、<code>image</code> 等文件全部布置在一台服务器上，小网站这样凑活还行，大中网站如果这样做服务器根本受不了的。所以，<strong>现代浏览器在安全性和可用性之间选择了一个平衡点。在遵循同源策略的基础上，选择性地为同源策略开放了后门，</strong> 例如 <code>img</code> <code>script</code> <code>style</code> 等标签，都允许垮域引用资源，严格说这都是不符合同源要求的。</p>
+<p>正是利用 <code>script</code> 标签引用的资源没有同源策略的限制，我们可以通过 <code>script</code> 向服务器发送请求，而服务器返回一个回调，将数据作为参数返回，这一样就可以拿到想要的数据。可能你现在不能明白是什么意思，看下面的代码，我们在页面中添加下面的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data);</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 创建一个 script 标签用以请求数据</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> scriptElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 设置请求的地址 并且设置了处理数据的回调函数名称</span></span></span><br><span class="line"><span class="javascript">    scriptElement.src = <span class="string">&#x27;http://127.0.0.1:4000?callback=getData&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 这一步很重要，不设置的话浏览器会报错 Uncaught SyntaxError: Unexpected identifier</span></span></span><br><span class="line"><span class="javascript">    scriptElement.setAttribute(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;text/javascript&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 将这个 script 标签添加到 body 中</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;body&#x27;</span>)[<span class="number">0</span>].appendChild(scriptElement);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Node</code> 服务端的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> qs = querystring.parse(req.url.split(<span class="string">&#x27;?&#x27;</span>)[<span class="number">1</span>]); <span class="comment">// 解析请求参数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> data = <span class="string">&quot;Hello World&quot;</span>; <span class="comment">// 返回的数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 一定要在 $&#123;data&#125; 两端加上双引号，否则浏览器得到的是 getData(Hello World)会报错</span></span><br><span class="line">    res.end(<span class="string">`<span class="subst">$&#123;qs.callback&#125;</span>(&quot;<span class="subst">$&#123;data&#125;</span>&quot;)`</span>); <span class="comment">// 即getData(data)</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">4000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;服务启动在4000端口...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下</p>
+<center>
+    <img src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/Snipaste_2020-04-21_23-04-21.png"/>
+</center>
+
+
+
+<p>我来理一下上面的步骤</p>
+<ol>
+<li><p>首先创建了一个函数 <code>getData</code>，该函数的作用是用来处理数据的，接收的那个参数就是数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建一个 <code>script</code> 标签，并且设置了请求的地址，以及将处理数据函数的名称即 <code>getData</code> 作为参数传入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">script.src = <span class="string">&#x27;http://127.0.0.1:4000?callback=getData&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>服务器接到请求，将要返回的数据作为传入的回调函数的参数传入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.end(<span class="string">`<span class="subst">$&#123;qs.callback&#125;</span>(&quot;<span class="subst">$&#123;data&#125;</span>&quot;)`</span>); <span class="comment">// 即getData(data)</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>script</code> 标签得到服务器返回的数据，即 <code>getData(&quot;Hello World&quot;)</code>，<code>script</code> 得到的数据是可执行的代码，所以会执行 <code>getData()</code> 方法，这样数据 <code>Hello World</code> 就作为参数传递给了 <code>getData()</code></p>
+</li>
+</ol>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>使用简便，没有兼容性问题，是目前最流行的跨域方法</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>只支持 <code>GET</code> 请求，并且代码是从其他域得到的，不排除可能有恶意代码，所以使用该方法，服务端必须确保值得信任</li>
+<li>要确定 <code>JSONP</code> 请求失败并不容易</li>
+</ul>
+</blockquote>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p><code>CORS</code>(<code>Cross-origin resource sharing</code>，跨域资源共享) 是一个 <code>W3C</code> 标准，定义了在必须访问跨域资源时，浏览器与服务器应该如何沟通。<code>CORS</code> 背后的基本思想，就是使用自定义的 <code>HTTP</code> 头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功，还是应该失败。<code>CORS</code> 需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，<code>IE</code> 浏览器不能低于 <code>IE10</code>。</p>
+<p>对于开发者来说，我们只要正常的发出 <code>Ajax</code> 请求即可，与之前没有任何区别，如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">    &#125; </span><br><span class="line"> &#125;</span><br><span class="line"> xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.error(<span class="string">&#x27;出错了&#x27;</span>)</span><br><span class="line"> &#125;</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:4000&#x27;</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但是在服务端，我们要设置一下信赖的请求来源，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 表示来自 http://127.0.0.1:5501 的请求可以拿到数据</span></span><br><span class="line">    res.setHeader(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:5501&#x27;</span>)</span><br><span class="line">    res.end(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">4000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;服务启动在4000端口...&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>除了可以设置请求来源，还可以设置允许的方法，允许的头部等等</p>
+<table>
+<thead>
+<tr>
+<th>响应头</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Access-Control-Allow-Origin</code></td>
+<td>设置允许的请求来源，如果允许任意来源，可以设置为 <code>*</code></td>
+</tr>
+<tr>
+<td><code>Access-Control-Allow-Methods</code></td>
+<td>允许的方法，多个以逗号分隔，如 <code>GET</code>, <code>POST</code></td>
+</tr>
+<tr>
+<td><code>Access-Control-Allow-Headers</code></td>
+<td>允许的请求头，多个以逗号分隔</td>
+</tr>
+</tbody></table>
+<p>浏览器将 <code>CORS</code> 请求分为两类，分别为简单请求和非简单请求。如果满足以下两类请求，就是简单请求</p>
+<ol>
+<li>请求方法是以下三种方法之一：<ul>
+<li><code>GET</code></li>
+<li><code>POST</code></li>
+<li><code>HEAD</code></li>
+</ul>
+</li>
+<li><code>HTTP</code> 的头信息不超出以下几种字段：<ul>
+<li><code>Accept</code></li>
+<li><code>Accept-Language</code></li>
+<li><code>Content-Language</code></li>
+<li><code>Last-Event-ID</code></li>
+<li><code>Content-Type</code>：只限于三个值 <code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code></li>
+</ul>
+</li>
+</ol>
+<p>如果不满足以上的两大条件，那么就是非简单请求，而浏览器对于简单请求和非简单请求的处理是不一样的。</p>
+<p><strong>简单请求</strong></p>
+<ol>
+<li><p>在请求中需要附加一个额外的 <code>Origin</code> 头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部信息来决定是否给予响应。例如：<code>Origin: http://127.0.0.1:5501</code></p>
+</li>
+<li><p>如果服务器认为这个请求可以接受，就在 <code>Access-Control-Allow-Origin</code> 头部中回发相同的源信息(如果是公共资源，可以回发 <code>*</code>)，例如：<code>Access-Control-Allow-Origin：http://127.0.0.1:5501</code></p>
+</li>
+<li><p>没有这个头部或者有这个头部但源信息不匹配，浏览器就会驳回请求，注意，请求和响应都不包含 <code>cookie</code> 信息</p>
+</li>
+<li><p>如果需要包含 <code>cookie</code> 信息，<code>ajax</code> 请求需要设置 <code>xhr</code> 的属性 <code>withCredentials</code> 为 <code>true</code>，服务器需要设置响应头部 <code>Access-Control-Allow-Credentials: true</code></p>
+</li>
+</ol>
+<p><strong>非简单请求</strong></p>
+<p>非简单请求可能对服务器数据产生副作用，浏览器必须首先使用 <code>OPTIONS</code> 方法发起一个预检请求(<code>preflight request</code>)，从而获知服务端是否允许该跨域请求，</p>
+<ul>
+<li><code>Origin</code>：与简单的请求相同</li>
+<li><code>Access-Control-Request-Method</code>: 请求自身使用的方法</li>
+<li><code>Access-Control-Request-Headers</code>: (可选)自定义的头部信息，多个头部以逗号分隔</li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Origin</span><span class="punctuation">: </span>http://127.0.0.1:5501</span><br><span class="line"><span class="attribute">Access-Control-Request-Method</span><span class="punctuation">: </span>POST</span><br><span class="line"><span class="attribute">Access-Control-Request-Headers</span><span class="punctuation">: </span>NCZ</span><br></pre></td></tr></table></figure>
+
+<p>发送这个请求后，服务器可以决定是否允许这种类型的请求，一旦服务器通过 <code>Preflight</code> 请求，允许该请求之后，以后每次浏览器正常的 <code>CORS</code> 请求，就都跟简单请求一样了。</p>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li><code>CORS</code> 通信与同源的 <code>AJAX</code> 通信没有差别，代码完全一样，容易维护</li>
+<li>支持所有类型的 <code>HTTP</code> 请求</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>存在兼容性问题，特别是 <code>IE10</code> 以下的浏览器</li>
+<li>第一次发送非简单请求时会多一次请求</li>
+</ul>
+</blockquote>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28562290">跨域的那些事儿</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/5ba1d4fe6fb9a05ce873d4ad">浏览器同源策略及跨域的解决方法</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">LastKnightCoder</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lastknightcoder.github.io/hexo-blog/2020/04/22/Ajax%E8%B7%A8%E5%9F%9F/">http://lastknightcoder.github.io/hexo-blog/2020/04/22/Ajax%E8%B7%A8%E5%9F%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lastknightcoder.github.io/hexo-blog" target="_blank">Coder</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/hexo-blog/tags/Ajax/">Ajax</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg83.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/hexo-blog/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/hexo-blog/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/hexo-blog/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/hexo-blog/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2020/04/21/JavaScript%E6%9F%AF%E9%87%8C%E5%8C%96/"><img class="prev-cover" src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg82.png" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JavaScript柯里化</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2020/05/22/Spring%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3/"><img class="next-cover" src="https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200522214503.png" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Spring常见注解</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/hexo-blog/img/avatar.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LastKnightCoder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">127</div></a></div><div class="card-info-data-item is-center"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">109</div></a></div><div class="card-info-data-item is-center"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/LastKnightCoder"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="toc-number">1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS"><span class="toc-number">3.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/07/01/%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="圆圈中最后剩下的数字"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153622.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="圆圈中最后剩下的数字"/></a><div class="content"><a class="title" href="/hexo-blog/2020/07/01/%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="圆圈中最后剩下的数字">圆圈中最后剩下的数字</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/06/28/%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" title="复杂链表的复制"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153806.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="复杂链表的复制"/></a><div class="content"><a class="title" href="/hexo-blog/2020/06/28/%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" title="复杂链表的复制">复杂链表的复制</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/06/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/" title="字符串的排列"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153809.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="字符串的排列"/></a><div class="content"><a class="title" href="/hexo-blog/2020/06/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/" title="字符串的排列">字符串的排列</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/11/05/%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/" title="安全与算法"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153807.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="安全与算法"/></a><div class="content"><a class="title" href="/hexo-blog/2020/11/05/%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/" title="安全与算法">安全与算法</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/08/30/%E5%B0%8F%E7%90%83%E4%BC%9A%E5%81%9C%E4%B8%8B%E6%9D%A5%E5%90%97/" title="小球会停下来吗"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154833.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="小球会停下来吗"/></a><div class="content"><a class="title" href="/hexo-blog/2020/08/30/%E5%B0%8F%E7%90%83%E4%BC%9A%E5%81%9C%E4%B8%8B%E6%9D%A5%E5%90%97/" title="小球会停下来吗">小球会停下来吗</a><time datetime="2021-09-16T12:26:51.431Z" title="更新于 2021-09-16 12:26:51">2021-09-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By LastKnightCoder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
