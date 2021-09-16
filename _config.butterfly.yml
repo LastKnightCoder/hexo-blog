@@ -84,7 +84,7 @@ favicon: /img/favicon.png
 
 # Avatar (頭像)
 avatar:
-  img: /img/avatar.jpg
+  img: https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/avatar.3fylnrbbo8m0.jpg
   effect: false
 
 # Disable all banner image
@@ -209,10 +209,10 @@ post_copyright:
 reward:
   enable: true
   QR_code:
-    - img: /img/wechat.png
+    - img: https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/wechat.5i9djqicjjg0.png
       link:
       text: 微信
-    - img: /img/alipay.png
+    - img: https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/alipay.3yfbyh5z5ns0.png
       link:
       text: 支付宝
 
