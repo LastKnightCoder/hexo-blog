@@ -608,7 +608,7 @@ beautify:
 font:
   global-font-size:
   code-font-size:
-  font-family: Merriweather, Garamond, "思源宋体", "楷体", "楷体-简"
+  font-family: Merriweather Sans, "楷体", "楷体-简"
   code-font-family: Source Code Pro, Fira Code, "楷体", "楷体-简"
 
 # Font settings for the site title and site subtitle
@@ -856,7 +856,7 @@ inject:
   head:
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    - <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    - <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Merriweather+Sans:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
   bottom:
     # - <script src="xxxx"></script>
 
