@@ -318,7 +318,7 @@ livere:
 gitalk:
   client_id: 732e1cd8809f5dcbb307
   client_secret: 53927591a5fe806e0f4bd70509da817b037fa805
-  repo: LastKnightCoder/hexo-blog
+  repo: hexo-blog
   owner: LastKnightCoder
   admin: LastKnightCoder
   distractionFreeMode: true # Facebook-like distraction free mode.
