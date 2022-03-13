@@ -7,7 +7,6 @@ tags:
 	- Java 
 	- Spring
 date: 2020-02-27
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg57.jpg
 ---
 
 ## 概述

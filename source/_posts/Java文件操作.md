@@ -11,7 +11,6 @@ tags:
 keywords: Java 文件 File
 mathjax: true
 date: 2019-08-03
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg71.png
 ---
 
 ## File

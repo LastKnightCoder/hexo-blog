@@ -9,7 +9,6 @@ keywords: JavaScript 闭包
 description:
     JavaScript闭包介绍
 date: 2020-04-18
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg81.png
 ---
 
 ## JavaScript的作用域

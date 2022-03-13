@@ -4,7 +4,7 @@ categories: ES6
 tags:
 	- Object
 	- 对象
-date: 2021-01-24 11:28
+date: 2021-01-24
 ---
 
 ## Object 语法扩展

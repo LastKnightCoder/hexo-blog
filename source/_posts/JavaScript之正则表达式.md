@@ -9,7 +9,6 @@ keywords: JavaScript 正则表达式
 description:
     JavaScript正则表达式
 date: 2020-05-28
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200528095141.png
 ---
 
 在字符串的处理中，我们经常要进行字符串的匹配，校验等等操作。比如校验字符串的格式是否符合邮箱，电话号码的格式，校验密码是否符合要求，密码中是否包含数字和字母等等；又或者匹配得到某种规则的字符串。这一些操作如果使用常规的方法进行字符串操作，会花费较大的代价，包括时间和精力。

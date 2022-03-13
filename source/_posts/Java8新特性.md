@@ -10,7 +10,6 @@ mathjax: true
 description:
     Java8中的新特性
 date: 2019-07-14
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg41.jpg
 ---
 
 本篇文章会介绍`Java 8`中的一些新特性(不包括`Lambda`表达式，因为在[Java多线程](<https://lastknightcoder.github.io/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/>)这篇文章中介绍过了)。主要内容是`Java 8`中新增的函数式接口以及`Stream`流，还有方法引用。

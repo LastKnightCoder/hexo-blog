@@ -8,8 +8,7 @@ tags:
 keywords: jQuery 教程
 description:
     jQuery系统教程
-date: 2020-04-07 23:00:00
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg77.png
+date: 2020-04-07
 ---
 
 本篇文章是在完整学习 `jQuery` 以后，系统整理的教程，大纲如下

@@ -9,7 +9,6 @@ description:
 	MyBatis入门
 keywords: MyBatis
 date: 2020-02-14
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg58.jpg
 ---
 
 ## MyBatis入门

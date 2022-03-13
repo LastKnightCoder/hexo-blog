@@ -5,7 +5,6 @@ categories:
     - Spring
 description: SSM整合
 date: 2020-03-02
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg24.jpg
 ---
 
 在学习完Spring, SpringMVC, MyBatis三大框架后，现在将记录如何整合这三个框架。

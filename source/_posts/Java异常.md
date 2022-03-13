@@ -9,7 +9,6 @@ tags:
 	- Java
 keywords: Java 异常 Exception
 date: 2019-08-05
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg74.jpg
 ---
 
 所谓的异常就是不正常，我们在之前很多地方有碰到异常，比如对象向下转型时有碰到ClassCastException。所有的异常都继承自Exception类。Exception下面有一个重要的的子类叫做RuntimeException。

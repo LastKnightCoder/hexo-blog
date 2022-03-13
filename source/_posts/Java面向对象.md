@@ -10,7 +10,6 @@ mathjax: true
 description:
     讲解Java面向对象有关的知识，包含类，对象，抽象类，接口等概念
 date: 2019-07-05
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg70.png
 ---
 
 在最初的开始，人们编写程序的基于过程的，那时候的编程方式是面向过程的。但是人们发现，随着代码规模的扩大，编写大规模的程序使用面向过程的方法十分的困难，这时候人们必须提出一种新的编程思想，使得编写大型程序变得简单。这种思想就是面向对象的思想。

@@ -8,7 +8,6 @@ keywords: TypeScript
 description:
     TypeScript快速入门
 date: 2020-05-30
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200530002017.png
 ---
 
 ## 介绍

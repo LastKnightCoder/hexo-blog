@@ -10,7 +10,6 @@ keywords: Java JDBC 数据库
 description:
     有关于JDBC的基本知识，需要mysql的基础
 date: 2019-08-15
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg71.png
 ---
 
 ## 初识JDBC

@@ -4,7 +4,7 @@ categories:
 	- numpy
 tags:
 	- numpy
-date: 2020-10-31 19:41
+date: 2020-10-31
 ---
 
 文章是使用 jupyter 写的，为了插入到博客中，使用 iframe 进行嵌入，所以阅读体验可能不是很好

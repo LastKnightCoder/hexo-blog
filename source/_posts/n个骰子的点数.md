@@ -3,7 +3,7 @@ title: n个骰子的点数
 categories: 剑指offer
 tags:
 	- 剑指offer
-date: 2020-07-01 13:43
+date: 2020-07-01
 ---
 
 

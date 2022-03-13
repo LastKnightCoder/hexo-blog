@@ -9,7 +9,6 @@ description:
 	基础的网络编程的知识
 keywords: Java 网络编程
 date: 2019-07-26
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg65.jpg
 ---
 
 网络编程主要是客户端与服务器之间的交互，与客户端有关的类是Socket，与服务器有关的类是ServerSocket。客户端与服务器之间的通信主要是通过字节流实现的，客户端Socket含有方法

@@ -6,7 +6,7 @@ tags:
 	- CSS
 	- JavaScript
 keywords: CSS特效
-date: 2020-07-08 23:31
+date: 2020-07-08
 ---
 
 在 `Youtube` 看到一个使用 `CSS` 和 `JavaScript` 实现的时钟效果，觉得是个比较好的练手项目，就跟着做了一个，在深入研究代码的过程中的确学习到了很多的东西，成品效果如下

@@ -9,7 +9,6 @@ keywords: JavaScript柯里化
 description:
     JavaScript柯里化
 date: 2020-04-21
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg82.png
 ---
 
 ## 柯里化介绍

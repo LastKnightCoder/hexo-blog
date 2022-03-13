@@ -11,7 +11,6 @@ mathjax: true
 description:
   讲解Java常用的集合以及与泛型有关的知识
 date: 2019-07-08
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg67.jpg
 ---
 
 ## Collection

@@ -8,7 +8,6 @@ tags:
   - antd 
   - React-Hooks
 date: 2020-02-11
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg73.png
 ---
 
 本文将从0开始搭建一个基于富文本编辑器的博客系统，包括的内容有

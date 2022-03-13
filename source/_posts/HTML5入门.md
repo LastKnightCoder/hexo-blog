@@ -10,7 +10,6 @@ mathjax: true
 description:
     讲解HTML5的新增内容，包括语义化标签，表单新属性，和新增的API
 date: 2019-12-23
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg39.png
 ---
 
 HTML5属于上一代HTML的新迭代语言，设计HTML5最主要的目的是为了在移动设备上支持多媒体，例如：video标签和audio及canvas标记。

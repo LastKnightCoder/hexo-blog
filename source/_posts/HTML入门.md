@@ -10,7 +10,6 @@ mathjax: true
 description:
     讲解HTML基础知识，包含文本，图片，链接，表格，表单标签等知识
 date: 2019-02-08
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg15.jpg
 ---
 
 ## 需要的开发工具

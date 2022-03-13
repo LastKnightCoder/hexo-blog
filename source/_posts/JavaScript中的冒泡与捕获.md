@@ -9,7 +9,6 @@ keywords: JavaScript中的冒泡与捕获
 description:
     JavaScript中的冒泡与捕获
 date: 2020-03-17
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg65.jpg
 ---
 
 ## JavaScript中的冒泡与捕获

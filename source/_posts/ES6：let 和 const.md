@@ -4,7 +4,7 @@ categories: ES6
 tags:
 	- let
 	- const
-date: 2021-01-12 23:12
+date: 2021-01-12
 ---
 
 ## var 声明变量

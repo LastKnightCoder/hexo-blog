@@ -4,7 +4,7 @@ categories: ES6
 tags:
 	- Set
 	- Map
-date: 2021-02-15 18:49
+date: 2021-02-15
 ---
 
 在 ES6 以前，JavaScript 只有数组这一种集合来存储数据(当然有的人会使用对象来存储数据)，在 ES6 中引入了两种新的集合来存储数据，它们是 Set 和 Map：

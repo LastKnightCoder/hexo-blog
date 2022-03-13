@@ -10,7 +10,6 @@ description:
 	MySQL数据库入门
 keywords: MySQL
 date: 2019-09-14
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg73.png
 ---
 
 这篇文章是记录我学习 `MySQL` 时的一些笔记，不成体系，仅为以后快速学习准备，由于记录的是从零学习 `MySQL` 的笔记，所以笔记的内容是十分的基础的，基本上是以用为主，不牵涉到具体的原理性问题。

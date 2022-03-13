@@ -9,7 +9,6 @@ keywords: JavaWeb知识笔记
 description:
    有关Java Web的简略笔记，包括Tomcat Servlet JSP Cookie Session等等
 date: 2019-08-20
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg67.jpg
 ---
 
 ## Tomcat

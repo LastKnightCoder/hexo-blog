@@ -8,7 +8,6 @@ keywords: JavaScript中的各种距离
 description:
     讲解JavaScript中的各种距离
 date: 2020-06-03
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200603111110.png
 ---
 
 在使用的 `JavaScript` 的过程中，对 `offset`，`page`，`client` 等等所表示的距离一直不是很清楚，现趁有时间系统的学习了一下。上面所述的 `offsetX`，`pageX` 等等都是事件对象 `event` 的属性，当有鼠标事件触发时，可以获得相应的事件对象，该对象中包含着鼠标的各种距离，现总结如下

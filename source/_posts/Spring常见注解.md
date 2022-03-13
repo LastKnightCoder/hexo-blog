@@ -8,7 +8,6 @@ tags:
 	- Spring
 	- IOC
 date: 2020-05-22
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/20200522214503.png
 ---
 
 介绍 `Spring` 框架中的常见注解(**`NO XML`**)，在介绍 `Spring` 注解之前，简要的介绍一下 `IoC`。

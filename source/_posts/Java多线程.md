@@ -9,7 +9,6 @@ keywords: Java 多线程 线程池 Lambda表达式
 description:
     有关于Java多线程的介绍以及一点有关于Lambda的知识
 date: 2019-07-13
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg72.png
 ---
 
 ## 多线程概述

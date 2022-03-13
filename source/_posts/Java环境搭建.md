@@ -9,7 +9,6 @@ description:
 	适合小白的从零搭配Java开发环境及变量配置
 keywords: Java 环境配置 JDK JRE
 date: 2019-07-01
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg41.jpg
 ---
 
 Java环境搭建分为三步：

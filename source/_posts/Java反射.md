@@ -9,7 +9,6 @@ keywords: Java反射基本知识的介绍
 description:
   介绍Java反射技术的基本使用
 date: 2019-07-20
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg70.png
 ---
 
 反射是框架设计的灵魂，通过反射我们可以在程序运行时读取配置文件动态的创建一个类，也可以通过读取注解来达到我们想到的功能。与反射有关的类是Class类。

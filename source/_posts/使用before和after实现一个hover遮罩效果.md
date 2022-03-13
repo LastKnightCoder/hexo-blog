@@ -8,7 +8,6 @@ keywords: CSS特效
 description:
     使用before和after实现一个hover遮罩效果
 date: 2020-04-05
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg80.jpg
 ---
 
 今天开始学习`CSS`效果，记录一下，成品如下

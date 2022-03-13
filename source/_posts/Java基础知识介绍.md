@@ -10,7 +10,6 @@ mathjax: true
 description:
     讲解Java基础知识，包含常量，变量，数据类型，运算符，流程控制，方法以及数组等知识
 date: 2019-07-04
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg71.png
 ---
 
 ## 第一个程序: HelloWorld

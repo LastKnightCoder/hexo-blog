@@ -5,7 +5,7 @@ categories:
     - 踩坑
 tags:
 	- React 踩坑
-date: 2020-09-22 13:51
+date: 2020-09-22
 ---
 
 事件的起因是对一个使用传统网页开发的 `Web` 项目(即 `html, css, javascript` 分开写的项目)重构为 `React` 项目。

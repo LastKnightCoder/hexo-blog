@@ -2,7 +2,7 @@
 title: 向Hexo博客中插入Jupyter Notebook
 categories: Hexo
 tags: Hexo
-date: 2020-10-28 00:05:42
+date: 2020-10-28
 ---
 
 因为 Python 的笔记使用 Jupyter Notebook 进行记录十分的方便，并且 Jupyter Notebook 本身也支持 Markdown 的语法，所以在学习 Python 有关的内容时我喜欢使用 Jupyter Notebook 进行记录，但是一般我的笔记都分布在 Hexo 博客中，但是 Hexo 博客只能解析 Markdown，所以如何将 Jupyter Notebook 整合到 Hexo 博客中成了我的一大难题，经过几次的折腾，算是比较完美的解决了我的需求。

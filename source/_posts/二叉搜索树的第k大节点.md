@@ -3,7 +3,7 @@ title: 二叉搜索树的第k大节点
 categories: 剑指offer
 tags:
 	- 剑指offer
-date: 2020-07-01 10:02
+date: 2020-07-01
 ---
 
 

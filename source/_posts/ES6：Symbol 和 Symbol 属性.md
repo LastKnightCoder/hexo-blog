@@ -3,7 +3,7 @@ title: ES6：Symbol 和 Symbol 属性
 categories: ES6
 tags:
 	- Symbol
-date: 2021-02-02 17:58
+date: 2021-02-02
 ---
 
 在 ES6 中引入一种新的原始类型，那就是 Symbol 。Symbol 类型的值唯一的，**每个被创建出来的 Symbol 变量都是不同的**，这是 Symbol 这种数据类型最大的特点。

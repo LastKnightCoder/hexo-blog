@@ -9,7 +9,6 @@ keywords: Java 注解
 description:
   讲解Java注解的基本知识及其使用
 date: 2019-08-10
-cover: https://gitee.com/lastknightcoder/blogimage/raw/master/img/bg58.jpg
 ---
 
 我们在之前就有接触过注解，比如@Override，它可以帮我们检查是否重写了方法，如果没有，它在编译阶段就会报错。注解一般有下面三个功能
