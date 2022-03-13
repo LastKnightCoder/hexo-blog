@@ -1,0 +1,28 @@
+:root {
+  --hl-bg: #183055;
+  --hltools-bg: #183055;
+  --hlnumber-bg: #183055;
+}
+
+#article-container pre, #article-container figure.highlight {
+  border-radius: 5px;
+  padding: 16px;
+  font-weight: 500;
+}
+
+#article-container code {
+  background-color: rgba(255, 229, 100, 0.3);
+  color: #18045f;
+  padding: .2em .4em;
+  border-radius: .2em;
+  font-weight: 700;
+}
+
+.layout > div:first-child {
+  max-width: 960px;
+}
+
+p {
+  font-weight: 500;
+  color: black;
+}

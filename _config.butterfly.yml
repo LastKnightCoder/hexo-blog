@@ -23,9 +23,9 @@ hide_sidebar_menu_child: false
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
-highlight_copy: true # copy button
-highlight_lang: true # show the code language
+highlight_theme: pale night #  darker / pale night / light / ocean / mac / mac light / false
+highlight_copy: false # copy button
+highlight_lang: false # show the code language
 highlight_shrink: none # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
 highlight_height_limit: false # unit: px
 code_word_wrap: false
@@ -602,10 +602,10 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size:
-  code-font-size:
-  font-family: Merriweather Sans, "楷体", "楷体-简"
-  code-font-family: Source Code Pro, Fira Code, "楷体", "楷体-简"
+  global-font-size: 16px
+  code-font-size: 14px
+  font-family: Merriweather Sans, "Source Han Sans SC VF", "黑体", "楷体", "楷体-简"
+  code-font-family: Fira Code, Source Code Pro, "Source Han Sans SC VF", "黑体", "楷体", "楷体-简"
 
 # Font settings for the site title and site subtitle
 # 左上角網站名字 主頁居中網站名字
@@ -854,7 +854,8 @@ inject:
   head:
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    - <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Merriweather+Sans:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    - <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Merriweather+Sans:wght@400;500;700&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    - <link rel="stylesheet" type="text/css" href="/hexo-blog/self/code.css" >
   bottom:
     # - <script src="xxxx"></script>
 
