@@ -1,0 +1,538 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Markdown的语法 | Coder</title><meta name="keywords" content="Markdown,Syntax"><meta name="author" content="LastKnightCoder"><meta name="copyright" content="LastKnightCoder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="标题在 Markdown 中支持六级标题，在若干个 # 后面跟上标题内容即可成为标题，写法如下 # 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题   注意：  标准写法要求在 # 与标题内容之间有一个空格 Notion 只支持到三级标题   列表在 Markdown 中大致分为三种列表：无序列表、有序列表以及 TODO。 无序列表无序列表的形式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown的语法">
+<meta property="og:url" content="http://lastknightcoder.github.io/hexo-blog/2022/04/02/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Coder">
+<meta property="og:description" content="标题在 Markdown 中支持六级标题，在若干个 # 后面跟上标题内容即可成为标题，写法如下 # 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题   注意：  标准写法要求在 # 与标题内容之间有一个空格 Notion 只支持到三级标题   列表在 Markdown 中大致分为三种列表：无序列表、有序列表以及 TODO。 无序列表无序列表的形式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154519.jpg">
+<meta property="article:published_time" content="2022-04-02T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-02T04:44:27.486Z">
+<meta property="article:author" content="LastKnightCoder">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="Syntax">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154519.jpg"><link rel="shortcut icon" href="/hexo-blog/img/favicon.png"><link rel="canonical" href="http://lastknightcoder.github.io/hexo-blog/2022/04/02/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/hexo-blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Markdown的语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2022-04-02 04:44:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Merriweather+Sans:wght@400;500;700&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/hexo-blog/self/code.css" ><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/avatar.3fylnrbbo8m0.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">115</div></a></div><div class="data-item"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154519.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/hexo-blog/">Coder</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/hexo-blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/hexo-blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Markdown的语法<a class="post-edit-link" href="https://github.com/LastKnightCoder/hexo-blog/edit/master/source/_posts/Markdown的语法.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-02T00:00:00.000Z" title="发表于 2022-04-02 00:00:00">2022-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-02T04:44:27.486Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/Markdown/">Markdown</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Markdown的语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/hexo-blog/2022/04/02/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 <code>Markdown</code> 中支持六级标题，在若干个 <code>#</code> 后面跟上标题内容即可成为标题，写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>标准写法要求在 <code>#</code> 与标题内容之间有一个空格</li>
+<li><code>Notion</code> 只支持到三级标题</li>
+</ol>
+</blockquote>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>在 <code>Markdown</code> 中大致分为三种列表：无序列表、有序列表以及 TODO。</p>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>无序列表的形式如下：</p>
+<ul>
+<li>足球</li>
+<li>篮球</li>
+<li>乒乓球</li>
+</ul>
+<p>可以看到在列表项前有一个黑色原点，我们将其称之为子弹头，所以无需列表也可以称为 <code>bullet list</code>。</p>
+<p>要制作一个无序列表，只需要在列表项前加上 <code>-</code>、<code>*</code> 或 <code>+</code> 号即可，我一般使用 <code>-</code> 号，所以上述的列表项是这么写的</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 足球</span><br><span class="line"><span class="bullet">-</span> 篮球</span><br><span class="line"><span class="bullet">-</span> 乒乓球</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：在 <code>-</code> 和内容之间需要有一个空格</p>
+</blockquote>
+<p>此外列表项还可以嵌套，例如：</p>
+<ul>
+<li>中国<ul>
+<li>北京</li>
+<li>上海</li>
+<li>南昌</li>
+</ul>
+</li>
+<li>日本<ul>
+<li>东京</li>
+</ul>
+</li>
+</ul>
+<p>嵌套的语法也很简单，使用两个空格或者 <code>Tab</code> 键进行缩进即可，如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 中国</span><br><span class="line"><span class="bullet">  -</span> 北京</span><br><span class="line"><span class="bullet">  -</span> 上海</span><br><span class="line"><span class="bullet">  -</span> 南昌</span><br><span class="line"><span class="bullet">-</span> 日本</span><br><span class="line"><span class="bullet">  -</span> 东京</span><br></pre></td></tr></table></figure>
+
+<p>我们看到城市的子项相对于国家有两个空格的缩进，所以城市会变为国家的子项。</p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>有的时候我们的列表是有顺序关系的，这个时候我们使用有序列表，如下</p>
+<ol>
+<li>打开浏览器</li>
+<li>输入 bilibili 的网址</li>
+<li>开始摸鱼</li>
+</ol>
+<p>要制作一个有序列表，我们只需要在列表项前加上数字就行，比如上面的列表项的写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 打开浏览器</span><br><span class="line"><span class="bullet">2.</span> 输入 bilibili 的网址</span><br><span class="line"><span class="bullet">3.</span> 开始摸鱼</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ol>
+<li><p>数字后面有一个 <code>.</code>，并且 <code>.</code> 与内容之间需要有一个空格</p>
+</li>
+<li><p>列表项必须是连续的，否则会出现未知的问题</p>
+</li>
+<li><p>列表项之间不要有空行，比如下面的写法是不推荐的</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 打开浏览器</span><br><span class="line"><span class="code">                              </span></span><br><span class="line"><span class="code">2. 输入 bilibili 的网址</span></span><br><span class="line"><span class="code">                              </span></span><br><span class="line"><span class="code">3. 开始摸鱼</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<p>同样，有序列表也是可以嵌套的，同样添加对应的缩进即可</p>
+<ol>
+<li>起床<ol>
+<li>睁开眼睛</li>
+<li>关掉闹钟</li>
+<li>在睡一会儿</li>
+</ol>
+</li>
+<li>刷牙</li>
+<li>做早饭</li>
+</ol>
+<p>上面有序列表的写法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 起床</span><br><span class="line"><span class="bullet">   1.</span> 睁开眼睛</span><br><span class="line"><span class="bullet">   2.</span> 关掉闹钟</span><br><span class="line"><span class="bullet">   3.</span> 在睡一会儿</span><br><span class="line"><span class="bullet">2.</span> 刷牙</span><br><span class="line"><span class="bullet">3.</span> 做早饭</span><br></pre></td></tr></table></figure>
+
+<p>另外，无序列表与有序列表之间可以相互嵌套，比如</p>
+<ul>
+<li>数学家排名<ol>
+<li>牛顿</li>
+<li>高斯</li>
+<li>黎曼</li>
+</ol>
+</li>
+<li>物理学家排名<ol>
+<li>牛顿</li>
+<li>爱因斯坦</li>
+<li>麦克斯韦</li>
+</ol>
+</li>
+</ul>
+<p>写法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 数学家排名</span><br><span class="line"><span class="bullet">  1.</span> 牛顿</span><br><span class="line"><span class="bullet">  2.</span> 高斯</span><br><span class="line"><span class="bullet">  3.</span> 黎曼</span><br><span class="line"><span class="bullet">-</span> 物理学家排名</span><br><span class="line"><span class="bullet">  1.</span> 牛顿</span><br><span class="line"><span class="bullet">  2.</span> 爱因斯坦</span><br><span class="line"><span class="bullet">  3.</span> 麦克斯韦</span><br></pre></td></tr></table></figure>
+
+<h3 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h3><p><code>Task List</code> 表示待办事项</p>
+<ul>
+<li><input disabled="" type="checkbox"> 未完成</li>
+<li><input checked="" disabled="" type="checkbox"> 已完成</li>
+</ul>
+<p>它的写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 未完成</span><br><span class="line"><span class="bullet">-</span> [x] 已完成</span><br></pre></td></tr></table></figure>
+
+<p>如果 <code>[]</code> 中是空格，就表示未完成，如果里面是字母 <code>x</code>，就表示已完成。</p>
+<p>同样，<code>Task</code> 也可以嵌套</p>
+<ul>
+<li><input disabled="" type="checkbox"> 学习计算机<ul>
+<li><input disabled="" type="checkbox"> 学习前端</li>
+<li><input disabled="" type="checkbox"> 学习后端</li>
+<li><input disabled="" type="checkbox"> 学习操作系统</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 学习数学<ul>
+<li><input disabled="" type="checkbox"> 学习微积分</li>
+<li><input disabled="" type="checkbox"> 学习线性代数</li>
+<li><input disabled="" type="checkbox"> 学习概率论</li>
+</ul>
+</li>
+</ul>
+<p>上面的写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 学习计算机</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习前端</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习后端</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习操作系统</span><br><span class="line"><span class="bullet">-</span> [ ] 学习数学</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习微积分</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习线性代数</span><br><span class="line"><span class="bullet">  -</span> [ ] 学习概率论</span><br></pre></td></tr></table></figure>
+
+<p>同样是通过缩进来进行嵌套的，并且可以嵌套其他类型的列表，可自行尝试。</p>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>当我们点击超链接时，我们会跳转到一个网页，例如<a target="_blank" rel="noopener" href="https://www.baidu.com/">点击这里</a>你会跳转到百度，那么如何制作一个超链接。语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">内容</span>](<span class="link">跳转地址</span>)</span><br></pre></td></tr></table></figure>
+
+<p>比如上面的超链接的写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">点击这里</span>](<span class="link">https://www.baidu.com</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>如果你是在 <code>Typora</code> 打开的，你需要按下 <code>Ctrl(Windows)/Command(Mac)</code> 然后点击才会跳转</li>
+<li>链接的地址需要加上 <code>http://</code> 或者 <code>https://</code>，不要只写 <code>www.baidu.com</code>，这样时无效的</li>
+</ol>
+</blockquote>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>脚注一般用来对于文本的说明，可以作为内容的注释以及论文的引用，一般位于文档的尾部。我们在需要注释的文档后面加上 <code>[^text]</code>，其中 <code>text</code> 是右上角显示的文字，我们一般使用数字序号，比如 <code>[^1]</code>，然后再文档的最后加上解释说明 <code>[^text]: note.</code>。举个例子，当你把鼠标放置在右上角的 <code>1</code>  上面就可以看到脚注内容。</p>
+<blockquote>
+<p>窗前明月光，疑是地上床<a href="%E6%9D%8E%E7%99%BD%E3%80%8A%E9%9D%99%E5%A4%9C%E6%80%9D%E3%80%8B">^1</a>。</p>
+</blockquote>
+<p>上面的写法为：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">窗前明月光，疑是地上床[^1]。</span><br></pre></td></tr></table></figure>
+
+<p>然后我们在<strong>文档的最后</strong>加上脚注的内容</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">^1</span>]: <span class="link">李白《静夜思》</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就做成了一个脚注。</p>
+<h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2><p>通过一些特定的符号，我们可以对文本进行修饰，例如加粗，倾斜，删除线等等效果。</p>
+<h3 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h3><p>在需要<strong>加粗</strong>的文字两边分别加上两个星号 <code>**</code>，即可对内容进行加粗</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">**加粗**</span><br></pre></td></tr></table></figure>
+
+<h3 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h3><p>在需要<em>倾斜</em>的文字两边分别加上一个星号 <code>*</code>，即可对内容进行倾斜</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*倾斜*</span><br></pre></td></tr></table></figure>
+
+<h3 id="加粗并倾斜"><a href="#加粗并倾斜" class="headerlink" title="加粗并倾斜"></a>加粗并倾斜</h3><p>如果我们需要同时对文字进行<em><strong>加粗和倾斜</strong></em>，那我们就需要在文字两边加上三个星号 <code>***</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">***加粗并倾斜***</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>在文字的两边加上 <code>~~</code> 就会出现删除线，例如不要 <del>998</del>，只要98，写法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不要 ~~998~~，只要 98</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>上面我的一些注意事项都是放在一个引用框内</p>
+<blockquote>
+<p>注意：不要干坏事</p>
+</blockquote>
+<p>我们只需要在引用的内容前面加上 <code>&gt;</code> 即可出现引用框</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;注意：不要干坏事</span><br></pre></td></tr></table></figure>
+
+<p>引用的本意是为了引用别人的内容，比如论文、书本中的一段话</p>
+<blockquote>
+<p>窗前明月光，疑是地上霜。</p>
+<p style="text-align: right;">静夜思《李白》</p>
+</blockquote>
+<p> 不过因为引用框特别的样式，我一般也会用来放置特别的内容，比如注意事项这些。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>我用 <code>Markdown</code> 很大的一部分原因是因为它的代码排版比较漂亮，这是 <code>Word</code> 这些文字处理软件很难做到的，代码高亮分为两种，一种是行内的，一种是行间的。</p>
+<p>行内的代码块使用 ` 进行包裹，上面一段的 Markdown 和 Word 我就用 ` 进行包裹了</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`Markdown`</span> <span class="code">`Word`</span></span><br></pre></td></tr></table></figure>
+
+<p>而行间的代码块使用三个 ` 进行包裹并且在后面跟上需要高亮的语言，比如我们对 <code>CSS</code> 代码进行高亮，那我应该这么写</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```CSS</span></span><br><span class="line"><span class="code">p &#123;</span></span><br><span class="line"><span class="code">	font-family: &#x27;Merriweather&#x27;;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>: <span class="string">&#x27;Merriweather&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到一些特别的关键字都进行了高亮。</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>在很多的时候我们都会在笔记中应用表格，例如</p>
+<table>
+<thead>
+<tr>
+<th>科目</th>
+<th>成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语文</td>
+<td>100</td>
+</tr>
+<tr>
+<td>数学</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<p>它的写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 科目 | 成绩 |</span><br><span class="line">| --- | --- |</span><br><span class="line">| 语文 | 100 |</span><br><span class="line">| 数学 | 100 |</span><br></pre></td></tr></table></figure>
+
+<p>第一行表示<strong>表头</strong>，第二行是固定的格式，必须这样写，不过其中的 <code>-</code> 不要求一定是三个，可以是任意多个，不过要在两个以上，然后后面的内容就是表格的内容了，<code>|</code> 与 <code>|</code> 之间的内容就是表格项。</p>
+<p>有的时候我们会有合并单元项的要求</p>
+<table>
+  <tr>
+      <th>班级</td>
+      <th>排名</td>
+  </tr>
+    <tr>
+        <td>6001</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>6002</td>
+    <td rowspan="2">2</td>
+    </tr>
+    <tr>
+    <td>6003</td>
+    </tr>
+    <tr>
+    <td>6004</td>
+    <td>4</td>
+    </tr>
+</table>
+
+<p>要实现这样的效果就得借助于 <code>HTML</code> 了，它的写法如下</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">th</span>&gt;</span>班级<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">th</span>&gt;</span>排名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>6001<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>6002<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>6003<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>6004<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>4<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>HTML</code> 的语法不在这里讲解，可以参考<a href="https://lastknightcoder.github.io/vuepress-blog/HTML/%E8%A1%A8%E6%A0%BC/">这篇文章</a>。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>如果需要在文档中插入图片，通过以下的语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">图片地址</span>)</span><br></pre></td></tr></table></figure>
+
+<p>它与超链接的语法很相似，区别在于图片需要加上 <code>!</code>。</p>
+<p>上面的语法中图片描述不是必须的，只有图片地址是必须的，下面是引用图片的简单写法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![](图片地址)</span><br></pre></td></tr></table></figure>
+
+<p>关于图片的地址又分为相对地址和绝对地址。</p>
+<h3 id="相对地址"><a href="#相对地址" class="headerlink" title="相对地址"></a>相对地址</h3><p>相对地址指的是图片的地址相对当前文档而言的，例如假设又如下的目录结构</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── image</span><br><span class="line">│   └── pic2.png</span><br><span class="line">├── index.md</span><br><span class="line">└── pic1.png</span><br></pre></td></tr></table></figure>
+
+<p><code>index.md</code> 是需要插入图片的文档，<code>pic1.png</code> 与文档处于同一目录，<code>image</code> 文件夹与文档处于同一目录，并且该文件夹下包含图片 <code>pic2.png</code> ，现在我们可以通过如下的方法在文档中引用这两张图片</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![](./pic1.png)</span><br><span class="line">![](./image/pic2.png)</span><br></pre></td></tr></table></figure>
+
+<p>其中的 <code>./</code> 表示当前目录，所以 <code>./pic1.png</code> 就表示当前目录下的 <code>pic1.png</code> 文件，而 <code>./image/pic2.png</code> 就表示当前目录下的 <code>image</code> 文件夹中的 <code>pic2.png</code> 文件。</p>
+<h3 id="绝对地址"><a href="#绝对地址" class="headerlink" title="绝对地址"></a>绝对地址</h3><p>通过绝对地址访问不用关心图片相对于文档的相对位置，例如 <code>pic3.png</code> 放置在桌面上，我们就可以直接通过如下语法在文档中引用该图片，不论文档在任何地方</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![](~/Desktop/pic3.png)</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>~</code> 表示用户的家目录。</p>
+<p>另一种绝对地址是 <code>url</code> 链接</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210410151217.jpg)</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/20210410151217.jpg"></p>
+<p>通过网址来访问图片非常方便，当你将文档发送给别人时，如果你通过相对地址或本地的绝对地址来引用图片，那么你需要将图片一并发送过去，并且还得保证图片与文档的位置关系，否则可能引用不了，但是你通过网络绝对地址来引用图片，那么你不必发送图片，只需要发送文档即可，因为接收方也可以通过网络的绝对地址来获取到这张图片。</p>
+<p>如何将本地的图片变为网址呢，这个时候就需要用到图床了，将图片通过图床上传，即可得到图片的网络地址，便可以引用了。</p>
+<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>对于理工科的学生，在文档中编辑数学公式可谓是刚需<br>$$<br>f(x) = ax^2 + bx + c<br>$$<br>而绝大多数的 <code>Markdown</code> 软件都支持数学公式，所以这是另一个我选择 <code>Markdown</code> 作为笔记软件的原因。数学公式也分为行间公式和行内公式。</p>
+<h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><p>通过一个 <code>$</code> 符号包括的公式就是行内公式，它可以与文本共处一行，比如 $f(x) = ax^2 + bx + c$，这个公式与文本同处一行，所以它是行内公式，写法如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$f(x) = ax^2 + bx + c$</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>^</code> 表示上标，与 <code>^</code> 对应的是下标 <code>_</code>，比如 $a_x$ 的写法为 <code>a_x</code>。</p>
+<h3 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h3><p>行间公式独占一行，它使用两个 <code>$</code> 包裹<br>$$<br>f(x) = ax^2 + bx + c<br>$$<br>上述公式的写法为</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">f(x) = ax^2 + bx + c</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<p>这里只是介绍了公式的语法，但是如何编写数学公式，如积分求和等等公式<br>$$<br>\int f(x)dx \<br>\sum_{i=0}^{100}i<br>$$<br>则需要另行学习，可以参考<a target="_blank" rel="noopener" href="https://katex.org/docs/supported.html">这个网页</a>。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">LastKnightCoder</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lastknightcoder.github.io/hexo-blog/2022/04/02/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/">http://lastknightcoder.github.io/hexo-blog/2022/04/02/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lastknightcoder.github.io/hexo-blog" target="_blank">Coder</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/hexo-blog/tags/Markdown/">Markdown</a><a class="post-meta__tags" href="/hexo-blog/tags/Syntax/">Syntax</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154519.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/wechat.5i9djqicjjg0.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/wechat.5i9djqicjjg0.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/alipay.3yfbyh5z5ns0.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/alipay.3yfbyh5z5ns0.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/hexo-blog/2022/03/13/Go%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%8C%96/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154235.png" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Go语言之模块化</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting3@master/avatar.3fylnrbbo8m0.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LastKnightCoder</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/hexo-blog/archives/"><div class="headline">文章</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/hexo-blog/tags/"><div class="headline">标签</div><div class="length-num">115</div></a></div><div class="card-info-data-item"><a href="/hexo-blog/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/LastKnightCoder"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">2.1.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">2.2.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-List"><span class="toc-number">2.3.</span> <span class="toc-text">Task List</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8"><span class="toc-number">4.</span> <span class="toc-text">脚注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E4%BF%AE%E9%A5%B0"><span class="toc-number">5.</span> <span class="toc-text">文本修饰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E7%B2%97"><span class="toc-number">5.1.</span> <span class="toc-text">加粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%BE%E6%96%9C"><span class="toc-number">5.2.</span> <span class="toc-text">倾斜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E7%B2%97%E5%B9%B6%E5%80%BE%E6%96%9C"><span class="toc-number">5.3.</span> <span class="toc-text">加粗并倾斜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">5.4.</span> <span class="toc-text">删除线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">8.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">9.</span> <span class="toc-text">图片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%9C%B0%E5%9D%80"><span class="toc-number">9.1.</span> <span class="toc-text">相对地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%9C%B0%E5%9D%80"><span class="toc-number">9.2.</span> <span class="toc-text">绝对地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="toc-number">10.</span> <span class="toc-text">数学公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%AC%E5%BC%8F"><span class="toc-number">10.1.</span> <span class="toc-text">行内公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E9%97%B4%E5%85%AC%E5%BC%8F"><span class="toc-number">10.2.</span> <span class="toc-text">行间公式</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2021/01/29/%E7%BD%91%E7%BB%9C%E6%B5%81%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%B5%81/" title="网络流与最大流"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154236.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="网络流与最大流"/></a><div class="content"><a class="title" href="/hexo-blog/2021/01/29/%E7%BD%91%E7%BB%9C%E6%B5%81%E4%B8%8E%E6%9C%80%E5%A4%A7%E6%B5%81/" title="网络流与最大流">网络流与最大流</a><time datetime="2022-04-02T04:44:27.502Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2021/03/16/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E4%B8%8E%E6%95%B0%E5%AD%97%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="罗马数字与数字的转换"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153807.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="罗马数字与数字的转换"/></a><div class="content"><a class="title" href="/hexo-blog/2021/03/16/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E4%B8%8E%E6%95%B0%E5%AD%97%E7%9A%84%E8%BD%AC%E6%8D%A2/" title="罗马数字与数字的转换">罗马数字与数字的转换</a><time datetime="2022-04-02T04:44:27.502Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/07/01/%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/" title="股票的最大利润"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402153554.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="股票的最大利润"/></a><div class="content"><a class="title" href="/hexo-blog/2020/07/01/%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/" title="股票的最大利润">股票的最大利润</a><time datetime="2022-04-02T04:44:27.502Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/06/13/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="表示数值的字符串"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154520.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="表示数值的字符串"/></a><div class="content"><a class="title" href="/hexo-blog/2020/06/13/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="表示数值的字符串">表示数值的字符串</a><time datetime="2022-04-02T04:44:27.502Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2020/09/22/%E8%AE%B0%E4%B8%80%E6%AC%A1React%20CSS%20%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6/" title="记一次 React 中 CSS 处理事件"><img src="https://cdn.jsdelivr.net/gh/LastKnightCoder/ImgHosting2/20210402154235.png" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="记一次 React 中 CSS 处理事件"/></a><div class="content"><a class="title" href="/hexo-blog/2020/09/22/%E8%AE%B0%E4%B8%80%E6%AC%A1React%20CSS%20%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6/" title="记一次 React 中 CSS 处理事件">记一次 React 中 CSS 处理事件</a><time datetime="2022-04-02T04:44:27.502Z" title="更新于 2022-04-02 04:44:27">2022-04-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By LastKnightCoder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '732e1cd8809f5dcbb307',
+      clientSecret: '53927591a5fe806e0f4bd70509da817b037fa805',
+      repo: 'hexo-blog',
+      owner: 'LastKnightCoder',
+      admin: ['LastKnightCoder'],
+      id: 'de19be59311cb0395ecf7372a587adc2',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
